@@ -9,4 +9,4 @@ module.exports = {
   arrowParens: 'avoid',
   jsxSingleQuote: true,
   plugins: [require.resolve('prettier-plugin-tailwindcss')],
-}
+};
