@@ -20,6 +20,7 @@ export async function generateStaticParams() {
     }`;
   const slugs = await client.fetch(query);
   const slugRoutes = slugs.map((slug: any) => slug.slug.current);
+  console.log(slugRoutes);
   return slugRoutes.map((slug: any) => ({
     slug,
   }));
@@ -48,7 +49,7 @@ const query = groq`
     }
 `;
 
-export default async function page({ params: { slug } }: Props) {
+export default async function Post({ params: { slug } }: Props) {
   const post = await client.fetch(query, { slug });
 
   return (
