@@ -33,7 +33,7 @@ export default function BlogList({ posts }: Props) {
             </div>
           </Link>
           <div className='flex items-center justify-between'>
-            <div className='flex items-center space-x-1'>
+            <div className='flex items-center space-x-1.5'>
               <div className='relative h-6 w-6'>
                 <Image
                   className='rounded-full object-cover'
