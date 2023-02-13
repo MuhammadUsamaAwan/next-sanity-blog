@@ -21,8 +21,8 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href='/users' className='p-2 hover:text-white'>
-              Users
+            <Link href='/authors' className='p-2 hover:text-white'>
+              Authors
             </Link>
           </li>
         </ul>

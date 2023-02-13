@@ -15,19 +15,19 @@ const query = groq`
   }
 `;
 
-export default async function Users() {
-  const users = await client.fetch(query);
+export default async function authors() {
+  const authors = await client.fetch(query);
 
   return (
     <div>
       <div className='mb-4 flex items-center justify-center space-x-2 border-b border-white/20 pb-4'>
         <FiUsers className='text-2xl' />
-        <h1 className='text-2xl'>Users</h1>
+        <h1 className='text-2xl'>Authors</h1>
       </div>
       <ul className='list-disc space-y-4 text-xl'>
-        {users?.map((author: any) => (
+        {authors?.map((author: any) => (
           <li key={author?.slug?.current}>
-            <Link className='flex items-center space-x-2 hover:underline' href={`/users/${author?.slug?.current}`}>
+            <Link className='flex items-center space-x-2 hover:underline' href={`/authors/${author?.slug?.current}`}>
               <div className='relative h-8 w-8'>
                 <Image
                   className='rounded-full object-cover'

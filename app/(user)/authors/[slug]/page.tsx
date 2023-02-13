@@ -54,17 +54,16 @@ const queryAuthor = groq`
   }
 `;
 
-export default async function User({ params: { slug } }: Props) {
+export default async function Author({ params: { slug } }: Props) {
   const author = await client.fetch(queryAuthor, { slug });
   const posts = await client.fetch(query, { name: author?.name });
-  console.log(author);
 
   return (
     <div>
       <div className='mb-4 flex items-center justify-center space-x-2 border-b border-white/20 pb-4'>
         <div className='relative h-8 min-w-[2rem]'>
           <Image
-            className='brightness-80 rounded object-cover'
+            className='brightness-80 rounded-full object-cover'
             src={urlFor(author?.image).url()}
             alt={author?.name}
             fill

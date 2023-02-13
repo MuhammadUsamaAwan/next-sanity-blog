@@ -81,7 +81,7 @@ export default async function Post({ params: { slug } }: Props) {
               fill
             />
           </div>
-          <Link href={`/users/${post?.author?.slug?.current}`} className='text-sm hover:underline'>
+          <Link href={`/authors/${post?.author?.slug?.current}`} className='text-sm hover:underline'>
             {post?.author?.name}
           </Link>
         </div>
