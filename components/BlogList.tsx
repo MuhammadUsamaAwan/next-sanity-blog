@@ -37,7 +37,7 @@ export default function BlogList({ posts }: Props) {
               <div className='relative h-6 w-6'>
                 <Image
                   className='rounded-full object-cover'
-                  src={urlFor(post?.mainImage).url()}
+                  src={urlFor(post?.author?.image).url()}
                   alt={posts?.author?.name}
                   fill
                 />

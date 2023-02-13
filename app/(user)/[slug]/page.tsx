@@ -76,7 +76,7 @@ export default async function page({ params: { slug } }: Props) {
           <div className='relative h-6 w-6'>
             <Image
               className='rounded-full object-cover'
-              src={urlFor(post?.mainImage).url()}
+              src={urlFor(post?.author?.image).url()}
               alt={post?.author?.name}
               fill
             />
