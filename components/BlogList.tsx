@@ -13,7 +13,7 @@ export default function BlogList({ posts }: Props) {
       {posts?.map((post: any) => (
         <article key={post?._id} className='space-y-1 duration-200 hover:scale-[101%]'>
           <Link href={`/${post?.slug?.current}`}>
-            <div className='relative h-80 w-full'>
+            <div className='relative mb-1 h-80 w-full'>
               <Image
                 className='brightness-80 rounded object-cover'
                 src={urlFor(post?.mainImage).url()}
@@ -21,21 +21,32 @@ export default function BlogList({ posts }: Props) {
                 fill
               />
             </div>
-            <h1 className='text-xl'>{post?.title}</h1>
-          </Link>
-          <div className='item-center flex space-x-1'>
-            <div className='relative h-6 w-6'>
-              <Image
-                className='rounded-full object-cover'
-                src={urlFor(post?.mainImage).url()}
-                alt={posts?.author?.name}
-                fill
-              />
+            <div className='flex items-center justify-between'>
+              <h1 className='text-xl'>{post?.title}</h1>
+              <div className='flex items-center space-x-2 whitespace-nowrap text-sm'>
+                {post?.categories?.map((category: any) => (
+                  <div className='rounded-full bg-slate-400 px-2 py-0.5' key={category?.title}>
+                    {category?.title}
+                  </div>
+                ))}
+              </div>
             </div>
-            <Link href={`/users/${post?.author?.slug?.current}`} className='text-sm hover:underline'>
-              {post?.author?.name}
-            </Link>
-            <p className='ml-5 text-sm'>{dayjs(post?._createdAt).format('DD MMM')}</p>
+          </Link>
+          <div className='flex items-center justify-between'>
+            <div className='flex items-center space-x-1'>
+              <div className='relative h-6 w-6'>
+                <Image
+                  className='rounded-full object-cover'
+                  src={urlFor(post?.mainImage).url()}
+                  alt={posts?.author?.name}
+                  fill
+                />
+              </div>
+              <Link href={`/users/${post?.author?.slug?.current}`} className='text-sm hover:underline'>
+                {post?.author?.name}
+              </Link>
+            </div>
+            <p className='ml-10 text-sm'>{dayjs(post?._createdAt).format('DD MMM')}</p>
           </div>
         </article>
       ))}

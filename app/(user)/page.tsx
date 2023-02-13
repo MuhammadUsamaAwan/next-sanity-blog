@@ -8,9 +8,22 @@ import BlogList from '@/components/BlogList';
 
 const query = groq`
   *[_type=='post'] {
-    ...,
-    author->,
-    categories->,
+    mainImage,
+    title,
+    _createdAt,
+    slug {
+      current
+    },
+    author-> {
+      name,
+      image,
+      slug {
+        current
+      },
+    },
+    categories[]->{
+      title
+    },
   } | order(_createdAt desc)
 `;
 
