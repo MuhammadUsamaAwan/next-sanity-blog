@@ -21,17 +21,24 @@ export default function BlogList({ posts }: Props) {
                 fill
               />
             </div>
-            <div className='flex items-center justify-between'>
-              <h1 className='text-xl'>{post?.title}</h1>
-              <div className='flex items-center space-x-2 whitespace-nowrap text-sm'>
-                {post?.categories?.map((category: any) => (
-                  <div className='rounded-full bg-slate-400 px-2 py-0.5' key={category?.title}>
-                    {category?.title}
-                  </div>
-                ))}
-              </div>
-            </div>
           </Link>
+          <div className='flex items-center justify-between'>
+            <Link href={`/${post?.slug?.current}`}>
+              <h1 className='text-xl'>{post?.title}</h1>
+            </Link>
+            <div className='flex items-center space-x-2 whitespace-nowrap text-sm'>
+              {post?.categories?.map((category: any) => (
+                <Link
+                  href={`/categories/${category?.title}`}
+                  className='rounded-full bg-slate-400 px-2 py-0.5'
+                  key={category?.title}
+                >
+                  {category?.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <div className='flex items-center justify-between'>
             <div className='flex items-center space-x-1.5'>
               <div className='relative h-6 w-6'>
