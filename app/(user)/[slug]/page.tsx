@@ -20,7 +20,6 @@ export async function generateStaticParams() {
     }`;
   const slugs = await client.fetch(query);
   const slugRoutes = slugs.map((slug: any) => slug.slug.current);
-  console.log(slugRoutes);
   return slugRoutes.map((slug: any) => ({
     slug,
   }));
