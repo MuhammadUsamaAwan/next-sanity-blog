@@ -21,7 +21,7 @@ export default function Header() {
             </Link>
           </li>
           <li>
-            <Link href='/' className='p-2 hover:text-white'>
+            <Link href='/users' className='p-2 hover:text-white'>
               Users
             </Link>
           </li>
